@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitGuard - AI Exercise Coach</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- MediaPipe Pose Detection Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>FitGuard – AI Exercise Coach</h1>
+            <p class="subtitle">Real-time Squat Posture Feedback</p>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Video and Canvas Container -->
+            <div class="video-container">
+                <!-- Hidden video element for webcam -->
+                <video id="webcam" autoplay playsinline></video>
+                
+                <!-- Canvas for drawing pose skeleton overlay -->
+                <canvas id="output-canvas"></canvas>
+                
+                <!-- Feedback Overlay -->
+                <div id="feedback-overlay">
+                    <div id="feedback-text">Stand in front of camera to begin</div>
+                    <div id="rep-counter">Reps: 0</div>
+                </div>
+            </div>
+
+            <!-- Instructions Panel -->
+            <div class="instructions">
+                <h3>How to Use:</h3>
+                <ol>
+                    <li>Allow camera access when prompted</li>
+                    <li>Stand facing the camera (full body visible)</li>
+                    <li>Perform squats - get instant feedback!</li>
+                    <li>Green text = Good form, Red text = Needs correction</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Hackathon Prototype | Not for medical use</p>
+        </footer>
+    </div>
+
+    <script src="script-optimized.js"></script>
+</body>
+</html>

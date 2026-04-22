@@ -1,0 +1,179 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    font-weight: 300;
+    opacity: 0.95;
+}
+
+/* Main Content */
+.main-content {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Video Container */
+.video-container {
+    position: relative;
+    background: #000;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    max-width: 800px;
+}
+
+#webcam {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: scaleX(-1); /* Mirror the video */
+}
+
+#output-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(-1); /* Mirror the canvas */
+}
+
+/* Feedback Overlay */
+#feedback-overlay {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+#feedback-text {
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+#feedback-text.good {
+    background: rgba(34, 197, 94, 0.85);
+    color: white;
+}
+
+#feedback-text.warning {
+    background: rgba(239, 68, 68, 0.85);
+    color: white;
+}
+
+#rep-counter {
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: center;
+    display: inline-block;
+}
+
+/* Instructions Panel */
+.instructions {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    flex: 1;
+    min-width: 300px;
+}
+
+.instructions h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.instructions ol {
+    padding-left: 20px;
+}
+
+.instructions li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    color: white;
+    margin-top: 40px;
+    padding: 20px;
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #feedback-text {
+        font-size: 1.2rem;
+        padding: 12px 20px;
+    }
+    
+    #rep-counter {
+        font-size: 1.1rem;
+    }
+}
