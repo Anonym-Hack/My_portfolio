@@ -150,7 +150,7 @@
       <!-- External Profile Redirect Button -->
       <div style="text-align: center; margin-top: 5rem;">
         <p style="color: var(--text-dim); margin-bottom: 1rem;">Want to see my full detailed skills & background?</p>
-        <a href="#" target="_blank" class="pro-btn" style="display: inline-flex; justify-content: center; width: auto; max-width: 350px; margin: 0 auto; background: linear-gradient(to right, #3b82f6, #ec4899); box-shadow: 0 10px 30px rgba(236, 72, 153, 0.4);">
+        <a href="skills.html" class="pro-btn" style="display: inline-flex; justify-content: center; width: auto; max-width: 350px; margin: 0 auto; background: linear-gradient(to right, #3b82f6, #ec4899); box-shadow: 0 10px 30px rgba(236, 72, 153, 0.4);">
             View My External Profile 
             <span style="margin-left: 10px;">🔗</span>
         </a>
@@ -189,16 +189,15 @@
     const chatHistory = document.getElementById('chat-history');
     const chatBody = document.getElementById('chat-body');
 
-    // Simulated AI responses
-    const botResponses = {
-      'skills': "My technical arsenal includes C Programming, Python, Problem Solving, DSA Basics, Linux System administration, Terminal operations, and managing Virtual Systems via VirtualBox.",
-      'education': "I am currently studying BTech CSE AIML at Manav Rachna University. I am in Semester 2.",
-      'contact': "You can email me at ashish_25@mru.ac.in, call 7739010133, or check my GitHub (Anonym-Hack) and LinkedIn.",
-      'goals': "My goal is to master advanced programming logic, architect robust software systems, and evolve into a top-tier software developer.",
-      'who are you': "I am Ashish's simulated AI assistant. I can provide details regarding his skills, education, projects, and contact info.",
-      'projects': "My featured project is FitGuard AI Coach - an interactive web app using MediaPipe for real-time squat posture feedback. Scroll down to see the live demo link!",
-      'default': "I didn't quite catch that. Try asking about 'skills', 'education', 'contact', 'goals', or 'projects'."
-    };
+    // Simulated AI responses with fuzzy keywords
+    const botResponses = [
+      { keywords: ['skill'], reply: "My technical arsenal includes C, Python, DSA, and Linux. <br><br><a href='skills.html' style='color:#0ea5e9; text-decoration:underline;'>[View Full Skills Page]</a>" },
+      { keywords: ['edu'], reply: "I am currently studying BTech CSE AIML at Manav Rachna University (Semester 2). <br><br><a href='education.html' style='color:#0ea5e9; text-decoration:underline;'>[View Education Details]</a>" },
+      { keywords: ['proj'], reply: "My featured project is FitGuard AI Coach - an interactive web app using MediaPipe. <br><br><a href='projects.html' style='color:#0ea5e9; text-decoration:underline;'>[View All Projects]</a>" },
+      { keywords: ['contact', 'reach', 'email'], reply: "You can email me at ashish_25@mru.ac.in, call 7739010133, or check my GitHub/LinkedIn." },
+      { keywords: ['goal'], reply: "My goal is to master advanced programming logic and evolve into a top-tier software developer." },
+      { keywords: ['who'], reply: "I am Ashish's simulated AI assistant. I can provide details regarding his skills, education, projects, and contact info." }
+    ];
 
     chatInput.addEventListener('keypress', function(e) {
       if (e.key === 'Enter' && this.value.trim() !== '') {
@@ -212,12 +211,12 @@
         chatHistory.appendChild(userMsg);
 
         // Determine AI response
-        let reply = botResponses['default'];
+        let reply = "I didn't quite catch that. Try asking about 'skills', 'education', 'contact', 'goals', or 'projects'.";
         const lowerText = userText.toLowerCase();
         
-        for (const key in botResponses) {
-          if (lowerText.includes(key)) {
-            reply = botResponses[key];
+        for (const item of botResponses) {
+          if (item.keywords.some(kw => lowerText.includes(kw))) {
+            reply = item.reply;
             break;
           }
         }
@@ -226,7 +225,7 @@
         setTimeout(() => {
           const aiMsg = document.createElement('p');
           aiMsg.className = 'output ai-reply';
-          aiMsg.innerText = `> ${reply}`;
+          aiMsg.innerHTML = `> ${reply}`;
           chatHistory.appendChild(aiMsg);
           chatBody.scrollTop = chatBody.scrollHeight;
         }, 400);
