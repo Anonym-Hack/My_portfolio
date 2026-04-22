@@ -229,10 +229,14 @@ function updateRepCounter() {
 // INITIALIZATION
 // ============================================
 
-window.addEventListener('load', () => {
-    initializePose();
-    startCamera();
-});
+const startBtn = document.getElementById('start-btn');
+if(startBtn) {
+    startBtn.addEventListener('click', () => {
+        startBtn.style.display = 'none';
+        initializePose();
+        startCamera();
+    });
+}
 
 // Cleanup on page unload
 window.addEventListener('beforeunload', () => {
@@ -243,3 +247,4 @@ window.addEventListener('beforeunload', () => {
         videoElement.srcObject.getTracks().forEach(track => track.stop());
     }
 });
+

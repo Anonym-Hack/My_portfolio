@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FitGuard - AI Exercise Coach</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_ai.css">
     
     <!-- MediaPipe Pose Detection Library -->
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
@@ -23,6 +23,9 @@
         <!-- Main Content Area -->
         <div class="main-content">
             <!-- Video and Canvas Container -->
+            <div style="text-align:center; margin-bottom: 20px; width: 100%;">
+                <button id="start-btn" class="button primary" style="padding: 15px 30px; font-size: 1.2rem; cursor: pointer; border-radius: 12px; font-family: 'Orbitron', sans-serif; background: #00f7a5; color: #03120d; border: none; box-shadow: 0 0 20px rgba(0,247,165,0.4);">START CAMERA</button>
+            </div>
             <div class="video-container">
                 <!-- Hidden video element for webcam -->
                 <video id="webcam" autoplay playsinline></video>
@@ -58,3 +61,4 @@
     <script src="script-optimized.js"></script>
 </body>
 </html>
+

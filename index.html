@@ -15,7 +15,10 @@
     <header class="hero">
       <nav class="topbar">
         <div class="brand">Ashish</div>
-        <div class="tag">Personal Portfolio</div>
+        <div style="display: flex; gap: 15px; align-items: center;">
+            <div class="tag">Personal Portfolio</div>
+            <button id="theme-btn" class="theme-toggle">?? Light Mode</button>
+        </div>
       </nav>
 
       <div class="hero-layout">
@@ -141,12 +144,13 @@
 
         <article class="card" id="projects">
           <p class="section-label">Projects</p>
-          <h2>Work in progress</h2>
+          <h2>FitGuard - AI Exercise Coach</h2>
           <p>
-            I am currently building small academic and personal coding projects. You can replace this section
-            with your real projects such as calculator apps, student management systems, Python scripts,
-            or C programs.
+            An interactive web application that uses MediaPipe Pose Detection to provide real-time feedback on squat posture. It analyzes your form through your webcam and counts your reps!
           </p>
+          <div class="hero-actions" style="margin-top: 18px;">
+            <a class="button primary" href="index_ai.html" target="_blank">Open Project</a>
+          </div>
         </article>
 
         <article class="card">
@@ -208,7 +212,13 @@
                 .sort(function (a, b) { return b.intersectionRatio - a.intersectionRatio; });
 
               if (visible.length > 0) {
-                setActiveId(visible[0].target.id);
+                var newId = visible[0].target.id;
+                setActiveId(newId);
+                if (newId === "skills" || newId === "projects") {
+                    document.body.classList.add("theme-blue-3d");
+                } else {
+                    document.body.classList.remove("theme-blue-3d");
+                }
               }
             },
             {
@@ -255,7 +265,32 @@
       if (rootElement) {
         ReactDOM.createRoot(rootElement).render(e(SideNav));
       }
+    
+      // Theme Toggle Logic
+      var themeBtn = document.getElementById('theme-btn');
+      if (themeBtn) {
+          var currentTheme = localStorage.getItem('theme') || 'dark';
+          if(currentTheme === 'light') {
+              document.documentElement.setAttribute('data-theme', 'light');
+              themeBtn.innerText = '?? Dark Mode';
+          }
+          themeBtn.addEventListener('click', function() {
+              var theme = document.documentElement.getAttribute('data-theme');
+              if (theme === 'light') {
+                  document.documentElement.removeAttribute('data-theme');
+                  localStorage.setItem('theme', 'dark');
+                  themeBtn.innerText = '?? Light Mode';
+              } else {
+                  document.documentElement.setAttribute('data-theme', 'light');
+                  localStorage.setItem('theme', 'light');
+                  themeBtn.innerText = '?? Dark Mode';
+              }
+          });
+      }
     })();
   </script>
 </body>
 </html>
+
+
+
