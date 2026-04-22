@@ -3,294 +3,237 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ashish | Portfolio</title>
+  <title>Ashish | Dynamic Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div id="react-nav-root"></div>
-  <div class="page-shell">
-    <header class="hero">
-      <nav class="topbar">
-        <div class="brand">Ashish</div>
-        <div style="display: flex; gap: 15px; align-items: center;">
-            <div class="tag">Personal Portfolio</div>
-            <button id="theme-btn" class="theme-toggle">?? Light Mode</button>
-        </div>
-      </nav>
+<body class="theme-hacker">
+  <!-- Dynamic Background Matrix / Glow -->
+  <div class="bg-layer"></div>
 
-      <div class="hero-layout">
-        <div class="hero-content">
-          <p class="eyebrow">Manav Rachna University</p>
-          <h1>I am Ashish</h1>
-          <p class="intro">
-            I am a Semester 2 student at Manav Rachna University, building my foundation in programming
-            and growing my skills through practice, projects, and problem solving. I also know Linux systems,
-            terminal commands, and how to use VirtualBox and virtual systems for learning and practice.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#about">About Me</a>
-            <a class="button secondary" href="#done">What I Have Done</a>
-          </div>
-        </div>
+  <!-- Topbar -->
+  <nav class="topbar">
+    <div class="brand glitch" data-text="Ashish.sys">Ashish.sys</div>
+    <div class="portfolio-text" style="font-weight: 800; letter-spacing: 2px; opacity: 0.8;">PORTFOLIO</div>
+  </nav>
 
-        <aside class="hero-panel">
-          <p class="section-label">Profile</p>
-          <figure class="profile-card">
-            <div class="profile-photo-frame">
-              <img class="profile-photo" src="WhatsApp Image 2026-04-21 at 9.37.35 AM.jpeg" alt="Portrait of Ashish">
-            </div>
-            <figcaption class="profile-caption">Ashish</figcaption>
-            <p class="profile-tag">BTech CSE AIML</p>
-            <p class="profile-text">
-              Semester 2 student focused on programming fundamentals, Linux systems, terminal work,
-              problem solving, and project-based learning.
-            </p>
-            <div class="profile-links">
-              <a class="profile-link" href="#about">About</a>
-              <a class="profile-link" href="#skills">Skills</a>
-              <a class="profile-link" href="#projects">Projects</a>
-            </div>
-          </figure>
-          <p class="section-label">Quick Highlights</p>
-          <div class="metric-list">
-            <div class="metric">
-              <span class="metric-number">2nd</span>
-              <span class="metric-text">Semester student with growing technical confidence</span>
-            </div>
-            <div class="metric">
-              <span class="metric-number">4+</span>
-              <span class="metric-text">Core learning areas including C, Python, DSA, and problem solving</span>
-            </div>
-            <div class="metric">
-              <span class="metric-number">1</span>
-              <span class="metric-text">Clear goal: build strong fundamentals and real project experience</span>
-            </div>
+  <!-- Hero Section: Interactive AI Terminal -->
+  <header class="hero" id="hero">
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <span class="btn close"></span>
+        <span class="btn min"></span>
+        <span class="btn max"></span>
+        <span class="title">ashish_ai@mru: ~</span>
+      </div>
+      <div class="terminal-body" id="chat-body" onclick="document.getElementById('chat-input').focus()">
+        <p class="output">> SYSTEM INITIALIZED.</p>
+        <p class="output">> ASHISH_AI V1.0 ONLINE.</p>
+        <p class="output">> You have to enter this to find this:</p>
+        <p class="output" style="margin-left: 20px;">- Type "skills" to see my technical skills.</p>
+        <p class="output" style="margin-left: 20px;">- Type "education" to find my education details.</p>
+        <p class="output" style="margin-left: 20px;">- Type "contact" or "projects" to discover more.</p>
+        <br>
+        <div id="chat-history"></div>
+        <div class="cmd-input-line">
+            <span class="prompt">guest@mru:~$</span>
+            <input type="text" id="chat-input" autocomplete="off" spellcheck="false" autofocus>
+            <span class="cursor">_</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-down-hint">
+        <span>V SCROLL TO INITIATE V</span>
+    </div>
+  </header>
+
+  <!-- The Trigger Point for Theme Change -->
+  <div id="pro-trigger"></div>
+
+  <!-- Professional Section (Transitions in smoothly) -->
+  <main class="pro-content">
+    
+    <!-- Profile Intro -->
+    <section class="pro-section" id="profile-intro" style="text-align: center; margin-bottom: 6rem;">
+        <div class="profile-photo-wrapper">
+            <img src="WhatsApp Image 2026-04-21 at 9.37.35 AM.jpeg" alt="Ashish" class="aurora-photo">
+            <div class="aurora-glow"></div>
+        </div>
+        <h1 class="pro-name">Hello, I'm Ashish</h1>
+        <p class="pro-bio">A dedicated Semester 2 developer exploring the frontiers of programming, Linux environments, and intelligent systems.</p>
+    </section>
+
+    <!-- Education & Goals -->
+    <section class="pro-section" id="about">
+      <div class="section-title-wrap">
+        <h2 class="pro-title">Executive Summary</h2>
+      </div>
+      <div class="pro-cards-grid">
+        <div class="pro-card glass">
+          <div class="card-icon">🎓</div>
+          <h3>Education</h3>
+          <p><strong>Manav Rachna University</strong></p>
+          <p>BTech CSE AIML - Semester 2</p>
+          <p class="card-detail">Building a strong technical foundation through rigorous academic study and practical implementation.</p>
+        </div>
+        <div class="pro-card glass">
+          <div class="card-icon">🎯</div>
+          <h3>Strategic Goals</h3>
+          <p>To master advanced programming logic, architect robust software systems, and evolve into a top-tier software developer.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3D Floating Skills -->
+    <section class="pro-section" id="skills">
+      <div class="section-title-wrap">
+        <h2 class="pro-title">Technical Arsenal</h2>
+      </div>
+      <div class="skills-3d-arena">
+        <div class="skill-orb" style="--delay: 0s;">
+          <div class="orb-inner">C</div>
+        </div>
+        <div class="skill-orb" style="--delay: 0.5s;">
+          <div class="orb-inner">Python</div>
+        </div>
+        <div class="skill-orb" style="--delay: 1s;">
+          <div class="orb-inner">DSA</div>
+        </div>
+        <div class="skill-orb" style="--delay: 1.5s;">
+          <div class="orb-inner">Linux</div>
+        </div>
+        <div class="skill-orb" style="--delay: 2s;">
+          <div class="orb-inner">Terminal</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Project -->
+    <section class="pro-section" id="projects">
+      <div class="section-title-wrap">
+        <h2 class="pro-title">Featured Engineering</h2>
+      </div>
+      <div class="project-showcase glass">
+        <div class="project-info">
+          <h3>FitGuard AI Coach</h3>
+          <div class="tech-stack">
+            <span class="tech-badge">MediaPipe</span>
+            <span class="tech-badge">Computer Vision</span>
+            <span class="tech-badge">JavaScript</span>
           </div>
-          <div class="spotlight-note">
-            <strong>Current focus:</strong> improving coding logic through regular practice and mini projects.
+          <p>A sophisticated interactive web application leveraging real-time Pose Detection to analyze biomechanical movement during exercises.</p>
+          <a href="index_ai.html" target="_blank" class="pro-btn">Launch Application <span class="arrow">→</span></a>
+        </div>
+        <div class="project-visual">
+          <div class="abstract-box">
+             <div class="scanner-line"></div>
+             <span>AI VISION ACTIVE</span>
           </div>
         </div>
       </div>
-    </header>
+    </section>
 
-    <main>
-      <section class="highlight-strip">
-        <div class="highlight-card">
-          <p class="section-label">Mindset</p>
-          <h2>Consistent learner</h2>
-          <p>I am building my portfolio step by step with curiosity, discipline, and daily coding practice.</p>
-        </div>
-        <div class="highlight-card">
-          <p class="section-label">Strength</p>
-          <h2>Hands-on practice</h2>
-          <p>I enjoy learning by writing programs, solving logic problems, and understanding fundamentals deeply.</p>
-        </div>
-        <div class="highlight-card">
-          <p class="section-label">Direction</p>
-          <h2>Career growth</h2>
-          <p>I want to keep improving my technical skills and become a confident software developer.</p>
-        </div>
-      </section>
+    <!-- Professional Contact -->
+    <section class="pro-section" id="contact">
+      <div class="section-title-wrap">
+        <h2 class="pro-title">Connect</h2>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:ashish_25@mru.ac.in" class="contact-pill glass">Email Me</a>
+        <a href="tel:7739010133" class="contact-pill glass">7739010133</a>
+        <a href="https://github.com/Anonym-Hack/My_portfolio" target="_blank" class="contact-pill glass">GitHub</a>
+        <a href="https://www.linkedin.com/in/ashish-rajput-3097063ba/" target="_blank" class="contact-pill glass">LinkedIn</a>
+      </div>
+      
+      <!-- External Profile Redirect Button -->
+      <div style="text-align: center; margin-top: 5rem;">
+        <p style="color: var(--text-dim); margin-bottom: 1rem;">Want to see my full detailed skills & background?</p>
+        <a href="#" target="_blank" class="pro-btn" style="display: inline-flex; justify-content: center; width: auto; max-width: 350px; margin: 0 auto; background: linear-gradient(to right, #3b82f6, #ec4899); box-shadow: 0 10px 30px rgba(236, 72, 153, 0.4);">
+            View My External Profile 
+            <span style="margin-left: 10px;">🔗</span>
+        </a>
+      </div>
+    </section>
 
-      <section class="card-grid">
-        <article class="card" id="about">
-          <p class="section-label">About Me</p>
-          <h2>Starting strong and learning fast</h2>
-          <p>
-            I am currently studying at Manav Rachna University and I am in Semester 2.
-            I am interested in learning coding, improving my technical knowledge, and building
-            useful projects that strengthen my practical skills.
-          </p>
-          <div class="about-points">
-            <div class="about-point">
-              <span class="about-label">What I am doing</span>
-              <p>Learning programming fundamentals, practicing regularly, and building confidence through mini projects.</p>
-            </div>
-            <div class="about-point">
-              <span class="about-label">What I want next</span>
-              <p>To improve my coding logic, create stronger projects, and grow into a skilled software developer.</p>
-            </div>
-          </div>
-        </article>
+  </main>
 
-        <article class="card">
-          <p class="section-label">Education</p>
-          <h2>Academic Details</h2>
-          <ul class="info-list">
-            <li><strong>Name:</strong> Ashish</li>
-            <li><strong>University:</strong> Manav Rachna University</li>
-            <li><strong>Current Semester:</strong> Semester 2</li>
-            <li><strong>Course:</strong> BTech CSE AIML</li>
-          </ul>
-        </article>
+  <footer class="pro-footer">
+    <p>© 2026 Ashish | Engineered with precision.</p>
+  </footer>
 
-        <article class="card" id="skills">
-          <p class="section-label">Skills</p>
-          <h2>What I am learning</h2>
-          <div class="chips">
-            <span>C Programming</span>
-            <span>Python</span>
-            <span>Problem Solving</span>
-            <span>DSA Basics</span>
-            <span>Linux System</span>
-            <span>Terminal</span>
-            <span>VirtualBox</span>
-            <span>Virtual Systems</span>
-          </div>
-        </article>
-
-        <article class="card" id="projects">
-          <p class="section-label">Projects</p>
-          <h2>FitGuard - AI Exercise Coach</h2>
-          <p>
-            An interactive web application that uses MediaPipe Pose Detection to provide real-time feedback on squat posture. It analyzes your form through your webcam and counts your reps!
-          </p>
-          <div class="hero-actions" style="margin-top: 18px;">
-            <a class="button primary" href="index_ai.html" target="_blank">Open Project</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <p class="section-label">Goals</p>
-          <h2>What I want to achieve</h2>
-          <p>
-            My goal is to become a better programmer, build a strong technical base, and gain confidence
-            in coding by continuously learning and practicing.
-          </p>
-        </article>
-
-        <article class="card" id="done">
-          <p class="section-label">Experience</p>
-          <h2>What I have done</h2>
-          <ul class="info-list">
-            <li>I have learned the basics of C programming, Python, and problem solving.</li>
-            <li>I have practiced terminal commands and worked with Linux systems.</li>
-            <li>I have used VirtualBox and virtual systems for learning and technical practice.</li>
-            <li>I am building my portfolio and small coding projects step by step.</li>
-          </ul>
-        </article>
-
-        <article class="card" id="contact">
-          <p class="section-label">Contact</p>
-          <h2>Let's connect</h2>
-          <ul class="info-list contact-list">
-            <li><strong>Email:</strong> <a href="mailto:ashish_25@mru.ac.in">ashish_25@mru.ac.in</a></li>
-            <li><strong>Phone:</strong> <a href="tel:7739010133">7739010133</a></li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/Anonym-Hack/My_portfolio" target="_blank" rel="noreferrer">github.com/Anonym-Hack/My_portfolio</a></li>
-            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ashish-rajput-3097063ba/" target="_blank" rel="noreferrer">linkedin.com/in/ashish-rajput-3097063ba</a></li>
-          </ul>
-        </article>
-      </section>
-    </main>
-  </div>
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script>
-    (function () {
-      var e = React.createElement;
-      var sections = [
-        { id: 'about', label: 'About' },
-        { id: 'skills', label: 'Skills' },
-        { id: 'projects', label: 'Projects' },
-        { id: 'done', label: 'Done' },
-        { id: 'contact', label: 'Contact' }
-      ];
+    // --- Scroll Intersection Observer for Theme Toggling ---
+    const trigger = document.getElementById('pro-trigger');
+    const brand = document.querySelector('.brand');
 
-      function SideNav() {
-        var _React$useState = React.useState('about');
-        var activeId = _React$useState[0];
-        var setActiveId = _React$useState[1];
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.boundingClientRect.top < window.innerHeight * 0.5) {
+          document.body.className = 'theme-pro';
+          brand.innerText = 'Ashish.';
+          brand.classList.remove('glitch');
+        } else {
+          document.body.className = 'theme-hacker';
+          brand.innerText = 'Ashish.sys';
+          brand.classList.add('glitch');
+        }
+      });
+    }, { threshold: [0, 0.5, 1], rootMargin: "0px" });
 
-        React.useEffect(function () {
-          var observer = new IntersectionObserver(
-            function (entries) {
-              var visible = entries
-                .filter(function (entry) { return entry.isIntersecting; })
-                .sort(function (a, b) { return b.intersectionRatio - a.intersectionRatio; });
+    observer.observe(trigger);
 
-              if (visible.length > 0) {
-                var newId = visible[0].target.id;
-                setActiveId(newId);
-                if (newId === "skills" || newId === "projects") {
-                    document.body.classList.add("theme-blue-3d");
-                } else {
-                    document.body.classList.remove("theme-blue-3d");
-                }
-              }
-            },
-            {
-              rootMargin: '-20% 0px -55% 0px',
-              threshold: [0.2, 0.45, 0.7]
-            }
-          );
+    // --- Interactive Terminal Chat Engine ---
+    const chatInput = document.getElementById('chat-input');
+    const chatHistory = document.getElementById('chat-history');
+    const chatBody = document.getElementById('chat-body');
 
-          sections.forEach(function (section) {
-            var node = document.getElementById(section.id);
-            if (node) observer.observe(node);
-          });
+    // Simulated AI responses
+    const botResponses = {
+      'skills': "My technical arsenal includes C Programming, Python, Problem Solving, DSA Basics, Linux System administration, Terminal operations, and managing Virtual Systems via VirtualBox.",
+      'education': "I am currently studying BTech CSE AIML at Manav Rachna University. I am in Semester 2.",
+      'contact': "You can email me at ashish_25@mru.ac.in, call 7739010133, or check my GitHub (Anonym-Hack) and LinkedIn.",
+      'goals': "My goal is to master advanced programming logic, architect robust software systems, and evolve into a top-tier software developer.",
+      'who are you': "I am Ashish's simulated AI assistant. I can provide details regarding his skills, education, projects, and contact info.",
+      'projects': "My featured project is FitGuard AI Coach - an interactive web app using MediaPipe for real-time squat posture feedback. Scroll down to see the live demo link!",
+      'default': "I didn't quite catch that. Try asking about 'skills', 'education', 'contact', 'goals', or 'projects'."
+    };
 
-          return function () {
-            observer.disconnect();
-          };
-        }, []);
+    chatInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter' && this.value.trim() !== '') {
+        const userText = this.value.trim();
+        this.value = '';
+        
+        // Print user message
+        const userMsg = document.createElement('p');
+        userMsg.className = 'cmd';
+        userMsg.innerHTML = `<span class="prompt">guest@mru:~$</span> ${userText}`;
+        chatHistory.appendChild(userMsg);
 
-        return e(
-          'nav',
-          { className: 'side-react-nav', 'aria-label': 'Section navigation' },
-          e('span', { className: 'side-react-label' }, 'Navigate'),
-          e(
-            'div',
-            { className: 'side-react-stack' },
-            sections.map(function (section, index) {
-              var className = section.id === activeId ? 'side-react-link is-active' : 'side-react-link';
-              return e(
-                'a',
-                {
-                  key: section.id,
-                  href: '#' + section.id,
-                  className: className,
-                  style: { animationDelay: (index * 0.08) + 's' }
-                },
-                section.label
-              );
-            })
-          )
-        );
-      }
-
-      var rootElement = document.getElementById('react-nav-root');
-      if (rootElement) {
-        ReactDOM.createRoot(rootElement).render(e(SideNav));
-      }
-    
-      // Theme Toggle Logic
-      var themeBtn = document.getElementById('theme-btn');
-      if (themeBtn) {
-          var currentTheme = localStorage.getItem('theme') || 'dark';
-          if(currentTheme === 'light') {
-              document.documentElement.setAttribute('data-theme', 'light');
-              themeBtn.innerText = '?? Dark Mode';
+        // Determine AI response
+        let reply = botResponses['default'];
+        const lowerText = userText.toLowerCase();
+        
+        for (const key in botResponses) {
+          if (lowerText.includes(key)) {
+            reply = botResponses[key];
+            break;
           }
-          themeBtn.addEventListener('click', function() {
-              var theme = document.documentElement.getAttribute('data-theme');
-              if (theme === 'light') {
-                  document.documentElement.removeAttribute('data-theme');
-                  localStorage.setItem('theme', 'dark');
-                  themeBtn.innerText = '?? Light Mode';
-              } else {
-                  document.documentElement.setAttribute('data-theme', 'light');
-                  localStorage.setItem('theme', 'light');
-                  themeBtn.innerText = '?? Dark Mode';
-              }
-          });
+        }
+
+        // Print AI response with a slight delay
+        setTimeout(() => {
+          const aiMsg = document.createElement('p');
+          aiMsg.className = 'output ai-reply';
+          aiMsg.innerText = `> ${reply}`;
+          chatHistory.appendChild(aiMsg);
+          chatBody.scrollTop = chatBody.scrollHeight;
+        }, 400);
+
+        chatBody.scrollTop = chatBody.scrollHeight;
       }
-    })();
+    });
   </script>
 </body>
 </html>
-
-
-
